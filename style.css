@@ -82,25 +82,99 @@ section {
     /* 이미지의 위치를 이동한다 */
     /* 이미지의 위치는 left, center, right로 이동가능 */
     background-position: center;
+    transition: all 0.3s;
+
+    /* div의 글자 정렬을 flex로할 수 있다 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: transparent;
 }
+.pic1:hover {
+  color: white;
+  text-shadow: 0 0 3px black;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.457);
+  transform: translate(-5px , -5px);
+}
+
 .pic2 {
     background-image: url(christmas-2947257_640.jpg);
     /* 이미지의 크기를 맞춘다 */
     background-size: cover;
     /* 이미지의 위치를 이동한다 */
     background-position: right;
+    transition: all 0.3s;
 }
+.pic2:hover {
+  transform: translateY(-15px);
+  opacity: 0.8;
+}
+
+.pic-box {
+  width: 350px;
+  height: 90vh; /*비율에따라서 바뀌는값*/
+  background-color: gray;
+  /* 마진값을 하나만 넣으면 위,아래, 양옆에 적용
+  마진값을 두개를 넣으면 위아래 / 양옆 으로 각각 적용 */
+  margin: 5px 20px;
+  border-radius: 25px;
+
+  overflow: hidden;
+
+  /* 글자를 이동하기 위해, 작성 */
+  position: relative;
+}
+
 .pic3 {
+    /* 부모와 같은 크기를 갖는다 */
+    width: inherit;
+    height: inherit;
+
     background-image: url(hot-chocolate-1782623_640.jpg);
     /* 이미지의 크기를 맞춘다 */
     background-size: cover;
     /* 이미지의 위치를 이동한다 */
     background-position: right;
+    transition: all 0.3s;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+.pic3:hover {
+  filter: blur(5px);
+  transform: scale(1.1);
+}
+.word2 {
+  position: absolute;
+  top: 50%;
+  color: white;
+  /* inhert는 부모의 값을 고정해서 들고오지만
+  100%는 바뀌는 부모의 값을 가져온다 */
+  width: 100%;
+  text-align: center;
+}
+
 /* 푸터에 대한 디자인 */
 footer {
   height: 50px;
   background-color: lightgray;
   padding: 5px;
   text-align: center;
+}
+
+/* 모바일 크기일 때 보여줄 디자인 */
+@media (max-width:767px) {
+  .gallery {
+    flex-direction: column;
+  }
+  .s2 {
+    /* 자식의 높이만큼 가짐 */
+    height: auto;
+  }
+  .box, .pic-box {
+    width: 90vw;
+    height: 300px;
+  }
+
 }
